@@ -22,6 +22,7 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    binding.pry
   end
 
   def student_params
