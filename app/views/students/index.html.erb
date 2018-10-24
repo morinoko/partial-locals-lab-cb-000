@@ -8,7 +8,7 @@
 <% end %>
 
 <% if @search_results %>
-  <h2>Search Results for "<%= params[:search_query]"</h2>
+  <h2>Search Results for "<%= params[:search_query] %>"</h2>
   <% @search_results.each do |student| %>
     <%= render partial: 'student', locals: { student: student } %>
   <% end %>
