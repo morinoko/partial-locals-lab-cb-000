@@ -1,20 +1,17 @@
 <h1>Student Directory</h1>
 
-<%= form_tag('/students', method: 'GET') do %>
+<%= form_tag(students_path, method: 'GET') do %>
   <%= label_tag :search_query, "Search for a student" %>
   <%= text_field_tag :search_query %>
 
   <%= submit_tag "Go" %>
 <% end %>
 
-<% if @search_results %>
-  <h2>Search Results</h2>
-  <% @search_results.each do |student| %>
-    <%= render partial: 'student', locals: { student: student } %>
-  <% end %>
+<% if params[:search_query] %>
+  <h2>Search Results for "<%= params[:search_query] %>"</h2>
 <% else %>
   <h2>All Students</h2>
-  <% @students.each do |student| %>
-    <%= render partial: 'student', locals: { student: student } %>
-  <% end %>
+<% end %>
+<% @students.each do |student| %>
+  <%= render partial: 'student', locals: { student: student } %>
 <% end %>

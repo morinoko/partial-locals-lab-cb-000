@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
 
   def index
     if params[:search_query]
-      @search_results = Student.all.search(params[:search_query])
+      @students = Student.all.search(params[:search_query])
       render 'index'
     else
       @students = Student.all
