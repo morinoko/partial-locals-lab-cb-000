@@ -7,14 +7,12 @@
   <%= submit_tag "Go" %>
 <% end %>
 
-<% if @search_results %>
+<% if params[:search_query] %>
   <h2>Search Results for "<%= params[:search_query] %>"</h2>
-  <% @search_results.each do |student| %>
-    <%= render partial: 'student', locals: { student: student } %>
-  <% end %>
 <% else %>
   <h2>All Students</h2>
-  <% @students.each do |student| %>
-    <%= render partial: 'student', locals: { student: student } %>
-  <% end %>
 <% end %>
+<% @students.each do |student| %>
+  <%= render partial: 'student', locals: { student: student } %>
+<% end %>
+
