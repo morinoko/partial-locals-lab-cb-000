@@ -1,6 +1,6 @@
 <h1>Student Directory</h1>
 
-<%= form_tag('/students', method: 'GET') do %>
+<%= form_tag(students_path, method: 'GET') do %>
   <%= label_tag :search_query, "Search for a student" %>
   <%= text_field_tag :search_query %>
 
